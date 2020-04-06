@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'focus-visible';
-
 import { COLORS } from '../../constants';
 import avatar from '../../assets/carmen-sandiego.png';
 
@@ -38,6 +37,7 @@ function reducer(state, action) {
 }
 
 const App = () => {
+
   const [state, dispatch] = React.useReducer(reducer, {
     numOfLikes: Math.round(Math.random() * 1000),
     numOfRetweets: Math.round(Math.random() * 100),

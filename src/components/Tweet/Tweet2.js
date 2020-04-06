@@ -2,26 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { format } from 'date-fns';
-
 import LikeButton from '../LikeButton';
+import Stat from './Stat';
+import Action from './Action';
+import TweetActionIcon from './TweetActionIcon';
 import SpacerGif from '../SpacerGif';
 
-import Action from './Action';
-import Stat from './Stat';
-import TweetActionIcon from './TweetActionIcon';
 
 const propTypes = {
   displayName: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
   tweetContents: PropTypes.string.isRequired,
-  timestamp: PropTypes.object.isRequired,
-  numOfLikes: PropTypes.number.isRequired,
-  numOfRetweets: PropTypes.number.isRequired,
+  numOfRetweets: PropTypes.string.isRequired,
+  numOfLikes: PropTypes.string.isRequired,
   isLikedByCurrentUser: PropTypes.bool.isRequired,
   isRetweetedByCurrentUser: PropTypes.bool.isRequired,
-  handleToggleLike: PropTypes.func.isRequired,
-  handleToggleRetweet: PropTypes.func.isRequired,
+  handleToggleLike: PropTypes.string.isRequired,
+  handleToggleRetweet: PropTypes.string.isRequired,
+  timestamp: PropTypes.string.isRequired,
 };
 
 const Tweet = ({
@@ -54,9 +53,10 @@ const Tweet = ({
       <Divider />
 
       <Stats>
-        <Stat num={numOfRetweets} suffix="Retweets" />
+        <Stat num={numOfRetweets} suffix='Retweets' />
         <SpacerGif size={32} />
-        <Stat num={numOfLikes} suffix="Likes" />
+        <Stat num={numOfLikes} suffix='Likes' />
+
       </Stats>
 
       <Divider />
